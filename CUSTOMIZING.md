@@ -4,22 +4,60 @@ Osprey Delight makes heavy use of various Hugo features, e.g. [modules](https://
 
 This also means that you normally do not need to maintain a separate fork due to the wide availability of customization options.
 
-## Custom SCSS <a href="custom-scss"></a>
+## Custom CSS <a href="custom-css"></a>
 
-Place a file named `_custom.scss` in your `assets/sass/` folder (create the directories if needed). This will override the theme's `_custom.scss` which is loaded in the internal main SCSS.
+Place a file named `custom.css` in your `assets/css/` folder (create the directories if needed). It replaces the theme's `custom.css` and is imported last, so its rules win over the theme's.
 
-> The theme's built-in `_custom.scss` contains useful customization examples, so don't be afraid to copy, override and experiment with it. 
+> The theme's built-in `custom.css` contains useful customization examples, so don't be afraid to copy, override and experiment with it.
+
+Colours, fonts and sizes are CSS variables, so you can change them without touching the theme's rules:
+
+```css
+:root {
+  --accent-color: #cc0033;
+  --primary-bg-color: #ffffff;
+}
+```
+
+The full list is in `assets/css/themes/<scheme>/colors.css`, `assets/css/themes/color-map-*.css`, `assets/css/themes/<scheme>/fontface.css` and `assets/css/fontsizing.css`.
+
+If your `custom.css` uses `@import`, put it at the very top of the file. CSS ignores an `@import` that comes after a rule.
+
+### Your own fonts
+
+1. Put the font files in your site's `static/fonts/` folder, e.g. `static/fonts/inter/inter-regular.woff2`.
+2. Declare the font and point the font variables at it in your `custom.css`:
+
+```css
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/inter/inter-regular.woff2") format("woff2");
+}
+
+:root {
+  --font-body: "Inter", Arial, sans-serif;   /* body text, nav */
+  --font-header: "Inter", Georgia, serif;    /* h1–h3, blockquotes */
+}
+```
+
+The other font variables are `--font-code`, `--font-tagline` (the landing title) and `--nav-font`.
+
+- Use `.woff2` or `.woff` files. Other formats (`.ttf`, `.otf`) fail the build unless you add them to `externals` in `layouts/partials/head.html`.
+- `./fonts/…` is relative to the site's stylesheet (`/style.css`), so it points to `static/fonts/…`.
+- For Google Fonts instead, put `@import url("https://fonts.googleapis.com/css2?family=…&display=swap");` on the first line of `custom.css`.
 
 ### Theming
 
 Get creative and build your own theme for Osprey Delight!
-A theme ([example dark theme](./themes/osprey-delight/assets/themes/dedark)) consists of three optional files:
+A theme ([example dark theme](./assets/css/themes/dedark)) consists of three optional files in `assets/css/themes/<name>/`:
 
 File                | Purpose                                                            | Recommendation
 --------------------|------------------------------------------------------------------- |------------------------
-`_colors.scss`      | Colors                                                             | Use a color scheme generator site (e.g. "coolors") to get some ideas, align with your logo's colors.
-`_fontface.scss`    | Font settings                                                      | Use [Google fonts](https://fonts.google.com/) for a font that fits. Tools such as [webfont helper](https://google-webfonts-helper.herokuapp.com/fonts) help you with independently self-hosting the font.
-`_custom.scss`      | Any other custom adaptions                                         | Just like the [custom SCSS described before](#custom-scss), but theme-local instead globally scoped.
+`colors.css`        | Colors (CSS variables)                                             | Use a color scheme generator site (e.g. "coolors") to get some ideas, align with your logo's colors.
+`fontface.css`      | Font settings (`@font-face` and font variables)                    | Use [Google fonts](https://fonts.google.com/) for a font that fits. Tools such as [webfont helper](https://gwfh.mranftl.com/fonts) help you with independently self-hosting the font.
+`custom.css`        | Any other custom adaptions                                         | Just like the [custom CSS described before](#custom-css), but theme-local instead of global.
 
 Set the theme in your config.yaml, e.g.:
 
@@ -31,11 +69,11 @@ Params:
 
 ### Syntax Highlighting (for Blog)
 
-Limiting external dependencies is important when it comes performance, therefore only Hugo's internal [Chroma Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) is supported out of the box. Here's how to use it:
+Limiting external dependencies is important for performance. Therefore, only Hugo's internal [Chroma Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) is supported out of the box. Here's how to use it:
 
-1. Generate a Chromastyle of your choice (in this case `solarized-dark`) as `_custom.scss` in project root: `hugo gen chromastyles --style=solarized-dark > _custom.scss`
-2. Move the file to `assets/sass/` folder
-3. Add `pygmentsUseClasses = true` to your config.yaml
+1. Generate a Chromastyle of your choice (in this case `solarized-dark`): `hugo gen chromastyles --style=solarized-dark > solarized.css`
+2. Move the file to your `assets/css/` folder and add `@import "solarized.css";` at the top of your `custom.css` (the example site does the same)
+3. Add `pygmentsUseClasses: true` to your config.yaml
 
 > Refer to [the official Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/) for more info. 
 
@@ -85,4 +123,4 @@ To add an icon to the footer (say SoundCloud, [as in this discussion](https://gi
 
 ### [lazyimg](https://github.com/hugo-mods/lazyimg)
 
-Customization options for experts are described in the [README](https://github.com/hugo-mods/lazyimg/README.md).
+Customization options for experts are described in the [README](https://github.com/hugo-mods/lazyimg/blob/main/README.md).
