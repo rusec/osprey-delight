@@ -1,0 +1,7 @@
+@import "../delight/custom.css";
+
+nav {
+  @media (max-width: 47.99em) {
+    opacity: 0;
+  }
+}

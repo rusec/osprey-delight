@@ -1,0 +1,66 @@
+{{ $theme := default "" .Site.Params.Theme }}
+@import "flexboxgrid-stripped.css";
+
+/* Theme-loading: Prefer theme's CSS (if found), otherwise use fallback: */
+{{ range (slice "colors" "fontface" "fontsizing") -}}
+{{ if resources.Get (printf "css/themes/%s/%s.css" $theme .) -}}
+@import "themes/{{ $theme }}/{{ . }}.css";
+{{ else -}}
+@import "{{ . }}.css";
+{{ end -}}
+{{ end -}}
+
+@import "icons.css";
+@import "animation.css";
+@import "layout.css";
+@import "base.css";
+@import "modal.css";
+@import "about.css";
+@import "gallery.css";
+{{ if (.Page.Scratch.Get "blog") -}}
+@import "blog.css";
+{{ end -}}
+@import "headings.css";
+{{ if .Site.Params.Feat.useTermynal -}}
+@import "termynal.css";
+{{ end -}}
+@import "nav.css";
+@import "contact.css";
+{{ if .Site.Params.background -}}
+@import "background.css";
+{{ end -}}
+{{ if resources.Get (printf "css/themes/%s/custom.css" $theme) -}}
+@import "themes/{{ $theme }}/custom.css";
+{{ end -}}
+@import "custom.css";
+
+
+{{ if .Site.Params.Feat.useTermynal -}}
+:root {
+  --term-title: "{{ hugo.Data.terminal.title }}";
+}
+{{- end }}
+
+/* Background image */
+{{ if .Site.Params.background -}}
+  {{ $imgDict := partial "resizer/responsive" (dict 
+    "img" (resources.Get .Site.Params.background)
+    "maxsize" (default "1920x" site.Params.Image.Background.resize)
+    "lqipsize" (default "512x Gaussian" site.Params.Image.Background.resizeLQIP)
+    "responsivesizes" (slice "512x" "640x" "1280x" "1600x" "1920x")
+    "resizeoptions" (default "jpg q92" site.Params.Image.Background.resizeOptions)
+  ) }}
+
+  .bg {
+    background-image: url("{{ $imgDict.lqip.Permalink }}"); 
+  }
+
+  {{ range $imgDict.responsive }}
+  @media (min-width: {{ math.Round (mul .Width 0.5) }}px) {
+      .bg.lazyloaded {
+        transition: background-image 1.5s;
+        background-image: url("{{ .Permalink }}"), url("{{ $imgDict.lqip.Permalink }}"); 
+      }
+  }
+  {{ end }}
+{{ end }}

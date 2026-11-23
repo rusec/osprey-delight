@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  vertical-align: baseline;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  box-sizing: inherit;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+::selection {
+  background: var(--accent-color)
+}
+
+body {
+  font-size: var(--fs-p);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: var(--primary-fg-color);
+  font-family: var(--font-body);
+  line-height: var(--base-line-height);
+
+  background-color: var(--secondary-bg-color);
+}
+
+main {
+  transition: .4s ease-in;
+
+  &::before {
+    background-color: var(--primary-bg-color);
+  }
+
+  &.active {
+    transform: translate(-100vw, 0);
+    opacity: 0.4;
+  }
+}
+
+header {
+  height: 100%;
+  min-height: 100%;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-fg-color);
+
+  div {
+    z-index: 101;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-tagline);
+    color: var(--tagline-color);
+  }
+
+  img {
+    /* max-height: calc(var(--vertical-rhythm) * 6); */
+    /* max-width: 100%; */
+    height: auto;
+    /* Actually not needed, but in case some CSS is overwritten for bad: */
+    object-fit: contain;
+  }
+}
+
+.container {
+  max-width: 43.75rem; /* 700px */
+  margin: auto;
+  padding: calc(var(--vertical-rhythm) * 4) 0 calc(var(--vertical-rhythm) * 4);
+}
+
+@media (max-width: 25em) {
+  body .container {
+    padding: calc(var(--vertical-rhythm) * 4) var(--vertical-rhythm);
+  }
+}
+
+@media (max-width: 47.99em) {
+  body .container {
+    padding: calc(var(--vertical-rhythm) * 4) var(--vertical-rhythm);
+  }
+
+  .mobile-hidden {
+    visibility: hidden;
+  }
+}
+
+footer {
+  height: calc(var(--vertical-rhythm) * 8);
+  background-color: var(--footer-bg-color);
+  /* display: block; */
+  padding-bottom: 2em;
+  /* overflow: hidden; */
+  color: var(--footer-icon-color);
+
+  .social {
+    margin-top: calc(var(--vertical-rhythm) * 2);
+    margin-bottom: calc(var(--vertical-rhythm) * 2);
+    .icon {
+      font-size: 2em;
+    }
+  }
+
+  small {
+    color: var(--footer-text-color);
+  }
+}

@@ -1,0 +1,17 @@
+h1,
+h2,
+h3 {
+  margin-bottom: var(--vertical-rhythm);
+  font-family: var(--font-header);
+  letter-spacing: 2px;
+  line-height: 1.45;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.home-logo {
+  max-height: calc(10 * var(--vertical-rhythm));
+  margin-bottom: var(--vertical-rhythm);
+}

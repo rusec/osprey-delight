@@ -1,0 +1,24 @@
+/* -- Fine-tuning -- */
+:root {
+  --tagline-color: var(--primary-fg-color);
+
+  --button-fg-color: var(--primary-bg-color);
+  /* Nav color of the full nav which shows up when pressing the burger on mobile viewports.
+     Regular colors are swapped by default (i.e. fg -> bg and vice versa). This aims to create a "b-side" or "flip-side" feeling. */
+  --full-nav-bg-color: var(--primary-fg-color);
+  --full-nav-fg-color: var(--primary-bg-color);
+
+  /* The links have some shadow effect. It usually makes sense to leave this as is. */
+  --link-shadow-color: var(--secondary-bg-color);
+
+  --gallery-bg-color: var(--primary-bg-color);
+  --gallery-modal-bg-color: var(--gallery-bg-color);
+  --gallery-overlay-bg-color: var(--primary-fg-color);
+  --gallery-overlay-title-color: var(--primary-bg-color);
+  --gallery-overlay-subtitle-color: var(--alt-text-color);
+  --gallery-modal-close-color: var(--secondary-bg-color);
+
+  --footer-bg-color: var(--primary-fg-color);
+  --footer-icon-color: var(--primary-bg-color);
+  --footer-text-color: var(--alt-text-color);
+}

@@ -1,0 +1,46 @@
+/*
+ * Modular font scale
+ * Large:  http://www.modularscale.com/?1.25&em&1.333&web&text
+ * Medium: http://www.modularscale.com/?1.25&em&1.25&web&text
+ * Small:  http://www.modularscale.com/?1.1&em&1.25&web&text
+ */
+:root {
+  --base-line-height: 1.6;
+  --base-font-size: 1.25rem; /* 20px */
+  --vertical-rhythm: calc(var(--base-line-height) * var(--base-font-size)); /* 2rem or 32px */
+
+  --fs-h1: 2.961rem;
+  --fs-h2: 2.221rem;
+  --fs-h3: 1.666rem;
+  --fs-p: 1.25rem;
+}
+
+@media (max-width: 49.99em) {
+  :root {
+    --fs-h1: 2.441rem;
+    --fs-h2: 1.953em;
+    --fs-h3: 1.563rem;
+    --fs-p: 1.25rem;
+  }
+}
+
+@media (max-width: 25em) {
+  :root {
+    --fs-h1: 2.148rem;
+    --fs-h2: 1.719rem;
+    --fs-h3: 1.375rem;
+    --fs-p: 1.1rem;
+  }
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
