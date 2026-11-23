@@ -80,12 +80,14 @@
     <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
   {{- end }}
 
-  {{/* resources.ToCSS was deprecated in 0.128.0 */}}
-  {{ if ge .Site.Hugo.Version "0.128.0" -}}
-  <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | css.Sass (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}">
-  {{- else -}}
-  <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}">
-  {{- end }}
+  {{ $css := resources.Get "css/main.css"
+    | resources.ExecuteAsTemplate "style.css" .
+    | css.Build (dict
+        "minify" true
+        "target" (slice "chrome100" "safari15" "firefox100")
+        "externals" (slice "*.woff" "*.woff2"))
+    | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}">
 
   {{ if .Site.Params.Feat.useStructuredData -}}
     {{ $s := (resources.Get "person.json" | resources.ExecuteAsTemplate "person.json" .).Content }}

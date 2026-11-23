@@ -33,14 +33,14 @@ class Termynal {
     constructor(container = '#termynal', options = {}) {
         this.container = (typeof container === 'string') ? document.querySelector(container) : container;
         this.pfx = `data-${options.prefix || 'ty'}`;
-        this.startDelay = options.startdelay || {{ site.Data.termynal.startDelay }};
-        this.typeDelay = options.typedelay || {{ site.Data.termynal.typeDelay }};
-        this.lineDelay = options.linedelay || {{ site.Data.termynal.lineDelay }};
-        this.progressLength = options.progresslength || {{ site.Data.termynal.progressLength }};
-        this.progressChar = options.progresschar || '{{ site.Data.termynal.progressChar }}';
+        this.startDelay = options.startdelay || {{ hugo.Data.termynal.startDelay }};
+        this.typeDelay = options.typedelay || {{ hugo.Data.termynal.typeDelay }};
+        this.lineDelay = options.linedelay || {{ hugo.Data.termynal.lineDelay }};
+        this.progressLength = options.progresslength || {{ hugo.Data.termynal.progressLength }};
+        this.progressChar = options.progresschar || '{{ hugo.Data.termynal.progressChar }}';
         this.progressPercent = options.progressPercent || 100;
         this.showPercent = ("showpercent" in options && options.showpercent)
-                           || (!"showpercent" in options && {{ site.Data.termynal.showPercent }});
+                           || (!"showpercent" in options && {{ hugo.Data.termynal.showPercent }});
         this.onExitCommand = options.onExitCommand;
         this.cursor = options.cursor || '▋';
         if (!options.noInit) this.init()
