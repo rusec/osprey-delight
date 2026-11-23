@@ -73,10 +73,6 @@ Params:
     url: "https://github.com/hugo-mods/"
   - type: heart
     url: "https://github.com/sponsors/kdevo"
-  - type: stackoverflow  
-    url: ""
-  - type: spotify
-    url: https://open.spotify.com/artist/5NhBOdJh6T1tgtM5Au1Opl
 
 ## Additional theme features:
   Feat:
