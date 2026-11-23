@@ -3,8 +3,6 @@
 </a>
 
 ---
-
-[![GitHub Release](https://img.shields.io/github/v/release/rusec/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/rusec/osprey-delight/releases/latest)
 [![Discussions](https://img.shields.io/badge/GitHub-Discussions-%230097a7?logo=github&style=flat-square)](https://github.com/kdevo/osprey-delight/discussions)
 [![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.158-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
 [![Built with hugo-mods](https://img.shields.io/static/v1?label=%E2%9D%A4&message=hugo-mods&color=0097a7&style=flat-square)](https://github.com/hugo-mods)
@@ -20,11 +18,11 @@ Changes from upstream:
 - Fixed various deprecations from newer Hugo versions.
 - The module path is `github.com/rusec/osprey-delight/v5`.
 
-Due to Hugo's way of breaking their API regularly [[1]](https://github.com/kdevo/osprey-delight/issues/58) [[2]](https://commaok.xyz/post/on_hugo/) [3](https://news.ycombinator.com/item?id=47618120#47624794), the original theme is no longer developed. Consider [sponsoring the theme developer](https://github.com/sponsors/kdevo).
+Due to Hugo's way of breaking their API regularly [[1]](https://github.com/kdevo/osprey-delight/issues/58) [[2]](https://commaok.xyz/post/on_hugo/) [[3]](https://news.ycombinator.com/item?id=47618120#47624794), the original theme is no longer developed. Consider [sponsoring the theme developer](https://github.com/sponsors/kdevo).
 
 ## Quickstart
 
-> If you're new to Hugo, [visit the docs](https://gohugo.io/getting-started/quick-start/) for an overview of the static site generator.
+If you're new to Hugo, [visit its docs](https://gohugo.io/getting-started/quick-start/) for an overview of the static site generator.
 
 ### Install the development tools
 
