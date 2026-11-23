@@ -1,5 +1,5 @@
 <a href="https://git.io/osprey-delight" target="_blank">
-    <img alt="Osprey Delight Logo" src="https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png" width="250">
+    <img alt="Osprey Delight Logo" src="https://raw.githubusercontent.com/rusec/osprey-delight/master/images/osprey-delight-logo.png" width="250">
 </a>
 <a href="https://kdevo.netlify.app/" target="_blank">
     <img align="right" alt="Nelify Continous Deployment Status" src="https://api.netlify.com/api/v1/badges/aff9a674-45e1-4437-89f7-2aabb281780f/deploy-status">
@@ -7,7 +7,7 @@
 
 ---
 
-[![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/kdevo/osprey-delight/releases/latest)
+[![GitHub Release](https://img.shields.io/github/v/release/rusec/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/rusec/osprey-delight/releases/latest)
 [![Discussions](https://img.shields.io/badge/GitHub-Discussions-%230097a7?logo=github&style=flat-square)](https://github.com/kdevo/osprey-delight/discussions)
 [![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.123-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
 [![Built with hugo-mods](https://img.shields.io/static/v1?label=%E2%9D%A4&message=hugo-mods&color=0097a7&style=flat-square)](https://github.com/hugo-mods)
@@ -28,7 +28,7 @@ If you want this theme to continue to live and also be supported in newer Hugo v
 If that's not possible for you, there are other ways to show your support:
 
 - ⭐ Give the project a star
-- Start [contributing](https://github.com/kdevo/osprey-delight/blob/master/CONTRIBUTING.md)
+- Start [contributing](https://github.com/rusec/osprey-delight/blob/master/CONTRIBUTING.md)
 
 ### Showcase
 
@@ -72,10 +72,10 @@ Initialize your repo as a module (replace `<username>` and `<projectname>` with 
 hugo mod init github.com/<username>/<projectname>
 ```
 
-Download the [documented config file](https://github.com/kdevo/osprey-delight/blob/master/exampleSite/config.yaml), e.g. via curl:
+Download the [documented config file](https://github.com/rusec/osprey-delight/blob/master/exampleSite/config.yaml), e.g. via curl:
 
 ```sh
-curl https://raw.githubusercontent.com/kdevo/osprey-delight/master/exampleSite/config.yaml -O
+curl https://raw.githubusercontent.com/rusec/osprey-delight/master/exampleSite/config.yaml -O
 ```
 
 Continue reading for [configuration options](#config).
@@ -88,11 +88,11 @@ Receive the latest features of the theme:
 hugo mod get -u
 ```
 
-> It is good practice to [check the release notes](https://github.com/kdevo/osprey-delight/releases) before upgrading.
+> It is good practice to [check the release notes](https://github.com/rusec/osprey-delight/releases) before upgrading.
 
 ## Configuration and Usage <a href="config"></a>
 
-It's best if you simply check out the fully commented [config file](https://github.com/kdevo/osprey-delight/blob/master/exampleSite/config.yaml).
+It's best if you simply check out the fully commented [config file](https://github.com/rusec/osprey-delight/blob/master/exampleSite/config.yaml).
 This theme follows a learning-by-doing approach.
 
 ### Images
@@ -139,14 +139,14 @@ To set it up:
 2. Copy and paste your form's URL endpoint to the `ajaxBasin` config.yaml parameter.
 3. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
-![Basin AJAX setup](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-ajax-setup.png)
+![Basin AJAX setup](https://raw.githubusercontent.com/rusec/osprey-delight/master/images/basin-ajax-setup.png)
 
 #### Enable spambot protection
 
 Under "Setup" → "Set a Custom Honeypot Field", input `_anti_spam_honeypot`.
 Basin will [ignore all messages that contain this specific field](https://usebasin.com/docs/features/spam-filtering). This should work since there is a hidden field that users normally do not use, but spambots will blindly input their data.
 
-![Basin Anti Spambot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-custom-honeypot.png)
+![Basin Anti Spambot](https://raw.githubusercontent.com/rusec/osprey-delight/master/images/basin-custom-honeypot.png)
 
 [Please do not make a tick in the "reCAPTCHA" checkbox](https://github.com/kdevo/osprey-delight/discussions/22), this service is not supported and also typically not necessary.
 
@@ -154,7 +154,7 @@ Basin will [ignore all messages that contain this specific field](https://usebas
 
 ### Customize it <a href="customize-it"></a>
 
-Want to have full control over appearance? Check out [how to customize the theme more granularly](https://github.com/kdevo/osprey-delight/blob/master/CUSTOMIZING.md).
+Want to have full control over appearance? Check out [how to customize the theme more granularly](https://github.com/rusec/osprey-delight/blob/master/CUSTOMIZING.md).
 
 ### Need help?
 
@@ -164,4 +164,4 @@ Feel free to ask questions in the [Q&A](https://github.com/kdevo/osprey-delight/
 ### Help wanted
 
 This README probably needs some documentation improvements for the latest features.
-Any PR regarding this is welcome. Please also check out [how to contribute](https://github.com/kdevo/osprey-delight/blob/master/CONTRIBUTING.md)!
+Any PR regarding this is welcome. Please also check out [how to contribute](https://github.com/rusec/osprey-delight/blob/master/CONTRIBUTING.md)!

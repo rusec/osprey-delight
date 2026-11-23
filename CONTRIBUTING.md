@@ -9,4 +9,4 @@ The necessary requirements for merge requests are:
 
 ## License
 
-This theme is released under the Apache 2.0 license, just like its predecessor. For more information read the [license](https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md).
+This theme is released under the Apache 2.0 license, just like its predecessor. For more information read the [license](https://github.com/rusec/osprey-delight/blob/master/LICENSE.md).
