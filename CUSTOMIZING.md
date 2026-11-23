@@ -86,8 +86,3 @@ To add an icon to the footer (say SoundCloud, [as in this discussion](https://gi
 ### [lazyimg](https://github.com/hugo-mods/lazyimg)
 
 Customization options for experts are described in the [README](https://github.com/hugo-mods/lazyimg/README.md).
-
-### [release-notify](https://github.com/hugo-mods/release-notify)
-
-For notifying about new bug/minor/major versions. Configurable in `data/release_notify.yaml`.
-Can be disabled entirely by changing `notifyOnNewThemeVersion` to `false` in your `config.yaml`.

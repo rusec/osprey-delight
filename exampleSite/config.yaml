@@ -96,10 +96,6 @@ Params:
     useTermynal: true
 
     googleTagManager: ""
-
-    # notifyOnNewThemeVersion enables a notification for every new minor/major version of this theme.
-    #   Whenever there is a new one, a warning is printed to console.
-    notifyOnNewThemeVersion: true
   
   # Image resizing can be configured here (see README for more info):
   Image:
